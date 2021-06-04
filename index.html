@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ComposersList">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Famous Composers</title>
+    <!-- script of AngularJS -->
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!--Our JS File -->
+    <script type='text/javascript' src="app.js"></script>
+    
+    <!-- Linking of Boostrap -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Linking Our CSS File -->
+    <link rel="stylesheet" type='text/css' href="style.css">
+</head>
+
+<body ng-controller="ComposerController">
+    <h1>Example #3</h1>
+    <h1>Coded by Manuel Echeandia</h1>
+    <hr>
+
+    <!-- Here are the 3 clickable Composer Pictures -->
+    <table class="top-table"> 
+        <tr>
+            <td ng-click="select = 'Bach'"><img  src="images/Johann_Sebastian_Bach.jpg"> Bach</td>
+            <td ng-click="select = 'Beethoven'"><img  src="images/beethoven.jpg"> Beethoven</td>
+            <td ng-click="select = 'Mozart'"><img  src="images/mozart.jpg"> Mozart</td>
+        </tr>
+    </table>
+
+    <!-- Here are the 3 Pieces of Music for each Composer -->
+    <table class="bottom-table">
+        <tr>
+            <td colspan="3"><h2>Top 5 Pieces of Music</h2></td>
+        </tr>
+        <tr ng-repeat="p in pieces" ng-if="p.composer == select">
+            <td><img src="{{p.pic}}"></td>
+            <td>{{p.composer}}</td>
+            <td>{{p.title}}</td>
+        </tr>
+    </table>
+
+</body>
+</html>
